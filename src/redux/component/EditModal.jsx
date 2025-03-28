@@ -42,7 +42,7 @@ function EditModal({ movie }) {
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label> Movie name </Form.Label>
               <Form.Control
-              defaultValue={movie.name}
+                defaultValue={movie.name}
                 onChange={(e) =>
                   setMovie({ ...newMovie, name: e.target.value })
                 }
@@ -111,7 +111,7 @@ function EditModal({ movie }) {
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary" onClick={() => handleEdit(movie.id)}>
+          <Button variant="primary" onClick={() => handleEdit(movie._id)}>
             Save Changes
           </Button>
         </Modal.Footer>

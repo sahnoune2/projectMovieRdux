@@ -5,7 +5,7 @@ import { deleteMovie } from "../action";
 import EditModal from "./EditModal";
 
 export const MoviesList = () => {
-  const movies = useSelector((state) => state.movies);
+  const movies = useSelector((state) => state.movies.movies);
   const dispatch = useDispatch();
   console.log(movies);
   return (
@@ -21,7 +21,7 @@ export const MoviesList = () => {
       }}
     >
       {movies.map((movie) => (
-        <>
+        <div key={movie._id}>
           {" "}
           <Card style={{ width: "18rem" }}>
             <Card.Img
@@ -38,9 +38,9 @@ export const MoviesList = () => {
               </div>
               <div style={{ display: "flex", gap: "2rem" }}>
                 {" "}
-                <EditModal movie={movie}/>
+                <EditModal movie={movie} />
                 <Button
-                  onClick={() => dispatch(deleteMovie(movie.id))}
+                  onClick={() => dispatch(deleteMovie(movie._id))}
                   variant="danger"
                 >
                   Delete
@@ -48,7 +48,7 @@ export const MoviesList = () => {
               </div>
             </Card.Body>
           </Card>
-        </>
+        </div>
       ))}
     </div>
   );
